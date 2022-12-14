@@ -12,7 +12,7 @@ First, add `share_widgets` as a dependency in your pubspec.yaml file.
 
 ```yaml
 dependencies:
-  share_screenshot_widget: ^0.0.3
+  share_screenshot_widget: ^0.0.5
 ```
 
 Don't forget to `flutter pub get`.
@@ -23,21 +23,50 @@ Then import:
 import 'package:share_screenshot_widget/share_screenshot_widget.dart';
 ```
 
-Now you can create Container Screenshot  use its widget
+Now you can Share Text As Image use its widget
 
 ```dart
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   
-// add Class ShareWidgets
-  ShareWidgets sharing = ShareWidgets();
-  
+// add GlobalKey
+  final globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    // add widget containerScreenshot
-    return sharing.containerScreenshot(
-      child: Text(
-        'Share screenshot widget.',
+    // add widget ShareTextAsImage
+    return GestureDetector(
+      onTap: () {
+       shareWidgets( globalKey:globalKey);
+        },
+      child: ShareTextAsImage(globalKey:globalKey,
+        child: Text(
+        'Share Text As Image.',
+      ),
+      ),
+    );
+  }
+}
+```
+Now you can Share Screenshot As Image use its widget
+
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+// add GlobalKey
+  final globalKey = GlobalKey();
+  @override
+  Widget build(BuildContext context) {
+    // add widget ShareScreenshotAsImage
+    return GestureDetector(
+      onTap: () {
+        sharing.shareWidgets();
+      },
+      child: ShareScreenshotAsImage(
+        globalKey:globalKey,
+        child: Text(
+          'Share Screenshot As Image.',
+        ),
       ),
     );
   }
@@ -45,14 +74,29 @@ class MyApp extends StatelessWidget {
 ```
 ### To Share widget as Screenshot
 ```dart
-// add Class ShareWidgets
-
- ShareWidgets sharing = ShareWidgets();
-shareWidgets()async{
-  // add fun shareWidgets
-  sharing.shareWidgets();
+ 
+   // add fun shareWidgets
+  shareWidgets();
+ 
+```
+### To Share Sting 
+```dart
+ 
+ shareString(){
+  //  fun shareString
+  shareString( text:"Share String",  subject : 'subject');
 }
 ```
+
+### To Share File
+```dart
+shareFile(){
+  //  fun shareFile
+   
+shareFile(file: file,  subject : 'subject');
+}
+```
+
 
 ### Examples
 Simple usage example can be found [in the example folder](example/lib/main.dart).

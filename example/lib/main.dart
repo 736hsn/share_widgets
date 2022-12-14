@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:share_screenshot_widget/share_widgets.dart';
+import 'package:share_screenshot_widget/share_screenshot_widget.dart';
 
 // import package
 ///import package

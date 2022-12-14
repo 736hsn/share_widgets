@@ -1,6 +1,6 @@
 name: share_screenshot_widget
 description: This plugin allows Flutter apps to Sharing widget as Screenshot in (WhatsApp,Telegram, Instagram, Facebook Messenger).
-version: 0.0.3
+version: 0.0.5
 homepage: https://github.com/736hsn/share_widgets
 
 environment:
